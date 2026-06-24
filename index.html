@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CozyCare Cleaners — Carpet, Couch &amp; Office Cleaning in Pretoria</title>
+<meta name="description" content="Professional carpet, couch and office cleaning in Pretoria &amp; Centurion. Eco-friendly products, dependable scheduling. Call 064 630 1811.">
+<meta property="og:title" content="CozyCare Cleaners — Care That Goes Deeper">
+<meta property="og:description" content="Carpet, couch and office cleaning in Pretoria &amp; Centurion, Gauteng.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --linen:#F6F4EF;
+    --stone:#EAE6DC;
+    --ink:#1B2420;
+    --ink-soft:#4A564E;
+    --sage:#3F5C4C;
+    --sage-light:#DCE6DF;
+    --honey:#CE9A4D;
+    --honey-light:#F1DDB4;
+    --forest:#1F2C25;
+    --on-dark:#F2EFE6;
+    --on-dark-soft:#B9C4BB;
+    --radius-sm:10px;
+    --radius-md:18px;
+    --radius-lg:28px;
+    --max:1180px;
+    --font-display:'Fraunces', serif;
+    --font-body:'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+  }
+ 
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--linen);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit;}
+  ul{margin:0;padding:0;list-style:none;}
+  h1,h2,h3{font-family:var(--font-display); margin:0; font-weight:600; letter-spacing:-0.01em;}
+  p{margin:0;}
+  button{font-family:inherit; cursor:pointer;}
+ 
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--sage);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:14px; height:1px;
+    background:var(--honey);
+    display:inline-block;
+  }
+  .section--dark .eyebrow{color:var(--honey-light);}
+  .section--dark .eyebrow::before{background:var(--honey);}
+ 
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 26px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:0.95rem;
+    text-decoration:none;
+    border:1.5px solid transparent;
+    transition:transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn--primary{background:var(--ink); color:var(--linen);}
+  .btn--primary:hover{background:var(--sage);}
+  .btn--outline{border-color:var(--ink); color:var(--ink);}
+  .btn--outline:hover{border-color:var(--sage); color:var(--sage);}
+  .btn--honey{background:var(--honey); color:var(--forest);}
+  .btn--honey:hover{background:var(--honey-light);}
+  .btn--ghost-light{border-color:rgba(242,239,230,.4); color:var(--on-dark);}
+  .btn--ghost-light:hover{border-color:var(--honey); color:var(--honey-light);}
+ 
+  /* ---------- Nav ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,244,239,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(27,36,32,.08);
+  }
+  .nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:78px;
+  }
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
+  .brand-mark{width:34px; height:34px; flex-shrink:0;}
+  .brand-text{font-family:var(--font-display); font-weight:700; font-size:1.15rem; color:var(--ink);}
+  .nav-links{display:flex; align-items:center; gap:34px;}
+  .nav-links a{
+    font-size:0.93rem; font-weight:500; text-decoration:none; color:var(--ink-soft);
+    position:relative; padding:4px 0;
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{display:flex; align-items:center; gap:14px;}
+  .nav-call{
+    font-family:var(--font-mono); font-size:0.85rem; color:var(--ink-soft); text-decoration:none;
+    display:none;
+  }
+  .nav-toggle{
+    display:none; background:none; border:none; padding:8px;
+  }
+  .nav-toggle span{display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; transition:.25s;}
+ 
+  @media (max-width:880px){
+    .nav-links{
+      position:absolute; top:78px; left:0; right:0;
+      background:var(--linen);
+      flex-direction:column; align-items:flex-start; gap:0;
+      border-bottom:1px solid rgba(27,36,32,.08);
+      max-height:0; overflow:hidden; transition:max-height .35s ease;
+    }
+    .nav-links.open{max-height:320px;}
+    .nav-links a{width:100%; padding:16px 28px; border-bottom:1px solid rgba(27,36,32,.06);}
+    .nav-toggle{display:block;}
+  }
+ 
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:88px 0 80px;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(63,92,76,0.035) 0px, rgba(63,92,76,0.035) 1px, transparent 1px, transparent 14px);
+  }
+  .hero .wrap{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;
+  }
+  .hero h1{font-size:clamp(2.6rem, 4vw + 1.2rem, 4.4rem); line-height:1.04; margin:18px 0 22px;}
+  .hero h1 em{font-style:italic; color:var(--sage);}
+  .hero p.lede{font-size:1.1rem; color:var(--ink-soft); max-width:480px; margin-bottom:34px;}
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap;}
+ 
+  .tag-figure{position:relative; display:flex; justify-content:center;}
+  .tag-figure svg{width:min(340px, 90%); animation:sway 7s ease-in-out infinite alternate;}
+  @keyframes sway{
+    from{transform:rotate(-2.2deg);}
+    to{transform:rotate(2deg);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .tag-figure svg{animation:none;}
+  }
+ 
+  @media (max-width:880px){
+    .hero .wrap{grid-template-columns:1fr; text-align:center;}
+    .hero p.lede{margin:0 auto 34px;}
+    .hero-ctas{justify-content:center;}
+  }
+ 
+  /* ---------- Trust strip ---------- */
+  .trust{
+    border-top:1px solid rgba(27,36,32,.1);
+    border-bottom:1px solid rgba(27,36,32,.1);
+    background:var(--stone);
+  }
+  .trust .wrap{
+    display:flex; flex-wrap:wrap; gap:18px 40px;
+    padding:22px 28px;
+    justify-content:space-between;
+  }
+  .trust-item{
+    font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.04em;
+    color:var(--ink-soft); display:flex; align-items:center; gap:10px;
+    white-space:nowrap;
+  }
+  .trust-item svg{width:16px; height:16px; color:var(--sage); flex-shrink:0;}
+ 
+  /* ---------- Generic section ---------- */
+  .section{padding:100px 0;}
+  .section--dark{background:var(--forest); color:var(--on-dark);}
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head h2{font-size:clamp(1.9rem, 2.4vw + 1rem, 2.7rem); margin:16px 0 14px;}
+  .section-head p{color:var(--ink-soft); font-size:1.05rem;}
+  .section--dark .section-head p{color:var(--on-dark-soft);}
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:none;}
+ 
+  /* ---------- Services ---------- */
+  .services-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;}
+  .card{
+    background:#fff; border:1px solid rgba(27,36,32,.08);
+    border-radius:var(--radius-md);
+    padding:30px 26px;
+    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .card:hover{transform:translateY(-4px); box-shadow:0 18px 40px rgba(27,36,32,.08); border-color:rgba(63,92,76,.25);}
+  .card-icon{
+    width:50px; height:50px; border-radius:var(--radius-sm);
+    background:var(--sage-light); color:var(--sage);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:20px;
+  }
+  .card-icon svg{width:24px; height:24px;}
+  .card h3{font-size:1.15rem; margin-bottom:10px; font-weight:600;}
+  .card p{color:var(--ink-soft); font-size:0.96rem;}
+  .card--wide{grid-column:span 1;}
+ 
+  @media (max-width:980px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:620px){.services-grid{grid-template-columns:1fr;}}
+ 
+  /* ---------- Values ---------- */
+  .values-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:0;}
+  .value{
+    padding:0 22px 0 0;
+    border-left:1px solid rgba(27,36,32,.1);
+    padding-left:22px;
+  }
+  .value:first-child{border-left:none; padding-left:0;}
+  .value-icon{width:26px; height:26px; color:var(--honey); margin-bottom:16px;}
+  .value h3{font-size:1rem; margin-bottom:8px;}
+  .value p{font-size:0.9rem; color:var(--on-dark-soft);}
+ 
+  @media (max-width:980px){
+    .values-grid{grid-template-columns:repeat(2,1fr); gap:32px 28px;}
+    .value{border-left:none; padding-left:0; border-top:1px solid rgba(242,239,230,.12); padding-top:24px;}
+    .value:first-child{border-top:none; padding-top:0;}
+  }
+  @media (max-width:560px){.values-grid{grid-template-columns:1fr;}}
+ 
+  /* ---------- About ---------- */
+  .about-wrap{display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:start;}
+  .about-wrap p.lede{font-size:1.08rem; color:var(--ink-soft); margin-bottom:28px;}
+  .founders{display:flex; flex-direction:column; gap:22px;}
+  .founder{display:flex; align-items:center; gap:16px;}
+  .founder-initial{
+    width:54px; height:54px; border-radius:50%;
+    background:var(--ink); color:var(--linen);
+    font-family:var(--font-display); font-weight:600; font-size:1.05rem;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .founder-name{font-weight:600; font-size:1rem;}
+  .founder-role{font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-soft); letter-spacing:0.04em;}
+ 
+  @media (max-width:880px){.about-wrap{grid-template-columns:1fr; gap:40px;}}
+ 
+  /* ---------- Testimonials ---------- */
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .testi{
+    background:var(--stone); border-radius:var(--radius-md); padding:32px 28px;
+    display:flex; flex-direction:column; justify-content:space-between; min-height:230px;
+  }
+  .testi svg{width:26px; height:20px; color:var(--honey); margin-bottom:18px;}
+  .testi p.quote{font-size:1rem; color:var(--ink); margin-bottom:20px; flex-grow:1;}
+  .testi .who{font-family:var(--font-mono); font-size:0.8rem; color:var(--ink-soft);}
+ 
+  @media (max-width:880px){.testi-grid{grid-template-columns:1fr;}}
+ 
+  /* ---------- CTA / Contact ---------- */
+  .cta-wrap{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;}
+  .cta-wrap h2{font-size:clamp(2rem, 3vw + 1rem, 3rem); margin:16px 0 18px; color:var(--on-dark);}
+  .cta-wrap p.lede{color:var(--on-dark-soft); font-size:1.06rem; margin-bottom:30px; max-width:440px;}
+  .direct-line{
+    display:flex; align-items:center; gap:14px; margin-top:34px;
+    font-family:var(--font-mono); font-size:0.9rem; color:var(--on-dark-soft);
+  }
+ 
+  .form{display:flex; flex-direction:column; gap:16px;}
+  .form input, .form textarea{
+    width:100%; padding:14px 16px; border-radius:var(--radius-sm);
+    border:1px solid rgba(242,239,230,.25);
+    background:rgba(242,239,230,.06);
+    color:var(--on-dark);
+    font-family:var(--font-body); font-size:0.96rem;
+    transition:border-color .25s ease, background .25s ease;
+  }
+  .form input::placeholder, .form textarea::placeholder{color:var(--on-dark-soft);}
+  .form input:focus, .form textarea:focus{
+    outline:none; border-color:var(--honey); background:rgba(242,239,230,.1);
+  }
+  .form textarea{resize:vertical; min-height:110px;}
+  .form-note{font-size:0.82rem; color:var(--on-dark-soft); margin-top:6px;}
+  .form-success{
+    display:none; background:rgba(206,154,77,.14); border:1px solid var(--honey);
+    color:var(--honey-light); padding:14px 16px; border-radius:var(--radius-sm);
+    font-size:0.92rem;
+  }
+  .form-success.show{display:block;}
+ 
+  @media (max-width:880px){.cta-wrap{grid-template-columns:1fr; gap:40px;}}
+ 
+  /* ---------- Footer ---------- */
+  footer{background:var(--forest); border-top:1px solid rgba(242,239,230,.1); padding:40px 0;}
+  .footer-row{
+    display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:18px;
+  }
+  .footer-brand{display:flex; align-items:center; gap:10px;}
+  .footer-brand .brand-text{color:var(--on-dark);}
+  .footer-meta{font-family:var(--font-mono); font-size:0.8rem; color:var(--on-dark-soft); display:flex; gap:24px; flex-wrap:wrap;}
+ 
+  :focus-visible{outline:2px solid var(--honey); outline-offset:3px;}
+</style>
+</head>
+<body>
+ 
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none">
+        <img x="11" y="8" width="70" height="70" rx="6" stroke="#1B2420" stroke-width="2" img src= "image/IMG_6494.PNG"/>
+         </svg>
+      <span class="brand-text">CozyCare Cleaners</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="nav-call" href="tel:+27646301811">064 630 1811</a>
+      <a class="btn btn--primary" href="#contact" style="padding:10px 22px; font-size:.88rem;">Get a Quote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+ 
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Carpet · Upholstery · Offices — Pretoria &amp; Centurion</span>
+      <h1>Care that goes <em>deeper.</em></h1>
+      <p class="lede">CozyCare Cleaners lifts embedded dirt, allergens and stubborn stains out of carpets, couches and workspaces across Gauteng — with eco-friendly products and a team that turns up when it says it will.</p>
+      <div class="hero-ctas">
+        <a class="btn btn--primary" href="tel:+27646301811">Call 064 630 1811</a>
+        <a class="btn btn--outline" href="#contact">Get a free quote</a>
+      </div>
+    </div>
+ 
+    <div class="tag-figure">
+      <svg viewBox="0 0 300 360" fill="none">
+        <!-- string loop -->
+        <path d="M150 18 C150 4, 174 4, 174 18 L174 30" stroke="#1B2420" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- tag body -->
+        <rect x="40" y="30" width="220" height="300" rx="26" fill="#FFFFFF" stroke="#1B2420" stroke-width="2"/>
+        <circle cx="162" cy="56" r="9" fill="#F6F4EF" stroke="#1B2420" stroke-width="2"/>
+        <line x1="68" y1="92" x2="232" y2="92" stroke="#1B2420" stroke-opacity=".12" stroke-width="1.4"/>
+ 
+        <!-- droplet symbol -->
+        <g transform="translate(0,118)">
+          <path d="M150 18c0 14-16 22-16 38a16 16 0 0 0 32 0c0-16-16-24-16-38Z" fill="none" stroke="#3F5C4C" stroke-width="2.3" stroke-linejoin="round"/>
+        </g>
+        <text x="150" y="200" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" letter-spacing="1.5" fill="#4A564E">WATER-SAFE</text>
+ 
+        <line x1="68" y1="222" x2="232" y2="222" stroke="#1B2420" stroke-opacity=".12" stroke-width="1.4"/>
+ 
+        <!-- leaf symbol -->
+        <g transform="translate(0,236)">
+          <path d="M134 30c0-18 16-30 36-30-2 20-12 36-30 38-7 1-6-2-6-8Z" fill="none" stroke="#CE9A4D" stroke-width="2.3" stroke-linejoin="round"/>
+          <path d="M134 30c10-6 22-16 26-26" stroke="#CE9A4D" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        <text x="150" y="298" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" letter-spacing="1.5" fill="#4A564E">ECO-FRIENDLY</text>
+      </svg>
+    </div>
+  </div>
+</header>
+ 
+<!-- ============ TRUST STRIP ============ -->
+<div class="trust">
+  <div class="wrap">
+    <span class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 3c3 4 7 8 7 12a7 7 0 1 1-14 0c0-4 4-8 7-12Z" stroke="currentColor" stroke-width="2"/></svg>
+      Eco-friendly products
+    </span>
+    <span class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="3" stroke="currentColor" stroke-width="2"/><path d="M5 21c1.5-4.5 5-6 7-6s5.5 1.5 7 6" stroke="currentColor" stroke-width="2"/></svg>
+      Pretoria &amp; Centurion based
+    </span>
+    <span class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="9" width="16" height="11" rx="1.5" stroke="currentColor" stroke-width="2"/><path d="M9 9V6a3 3 0 0 1 6 0v3" stroke="currentColor" stroke-width="2"/></svg>
+      Carpets, couches &amp; offices
+    </span>
+    <span class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Family-run, hands-on team
+    </span>
+  </div>
+</div>
+ 
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What we do</span>
+      <h2>Five jobs, one standard</h2>
+      <p>Every visit is judged against the same bar — whether it's a single couch or a full office floor.</p>
+    </div>
+ 
+    <div class="services-grid">
+      <div class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2c3.5 5 7 9.5 7 14a7 7 0 1 1-14 0c0-4.5 3.5-9 7-14Z" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <h3>Deep Carpet Cleaning</h3>
+        <p>Hot-water extraction lifts dirt and dust mites out of the pile, not just off the surface — so carpets stay clean for longer.</p>
+      </div>
+ 
+      <div class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13v-2a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v2" stroke="currentColor" stroke-width="2"/><rect x="3" y="13" width="18" height="6" rx="2" stroke="currentColor" stroke-width="2"/><path d="M5 19v2M19 19v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Couch &amp; Upholstery Care</h3>
+        <p>Fabric-safe methods that lift grime and odour without over-soaking or damaging delicate upholstery.</p>
+      </div>
+ 
+      <div class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="2"/><path d="M9 12c0 4-3 4-3 8M17 4v6M17 12v.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Stain Removal</h3>
+        <p>Wine, ink, pet marks, oil — each treated with the method that suits the fabric, not a one-size-fits-all spray.</p>
+      </div>
+ 
+      <div class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="1.5" stroke="currentColor" stroke-width="2"/><path d="M8 8h2M8 12h2M8 16h2M14 8h2M14 12h2M14 16h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Office Cleaning</h3>
+        <p>Scheduled cleans that keep shared workspaces hygienic, without ever disrupting the working day.</p>
+      </div>
+ 
+      <div class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 21C7 17 4 13.5 4 9.5 4 5 8 3 12 7c4-4 8-2 8 2.5 0 4-3 7.5-8 11.5Z" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <h3>Eco-Friendly Process</h3>
+        <p>Biodegradable products throughout, safe around kids, pets and anyone sensitive to harsh chemicals.</p>
+      </div>
+ 
+      <div class="card reveal" style="display:flex; flex-direction:column; justify-content:center; background:var(--sage); border:none;">
+        <h3 style="color:var(--linen); font-size:1.3rem;">Not sure what you need?</h3>
+        <p style="color:var(--sage-light); margin-bottom:18px;">Tell us the space and we'll recommend the right service.</p>
+        <a class="btn btn--honey" href="#contact" style="align-self:flex-start;">Ask CozyCare</a>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ============ VALUES (dark band) ============ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What guides the work</span>
+      <h2>Five things we don't compromise on</h2>
+    </div>
+ 
+    <div class="values-grid">
+      <div class="value reveal">
+        <svg class="value-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2 4 6v6c0 5 4 8 8 10 4-2 8-5 8-10V6l-8-4Z" stroke="currentColor" stroke-width="1.8"/></svg>
+        <h3>Integrity</h3>
+        <p>We do the job properly whether or not anyone's checking.</p>
+      </div>
+      <div class="value reveal">
+        <svg class="value-icon" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6L3.3 9.2l6.1-.6L12 3Z" stroke="currentColor" stroke-width="1.8"/></svg>
+        <h3>Excellence</h3>
+        <p>Every clean is judged against our own standard, not the lowest one we could get away with.</p>
+      </div>
+      <div class="value reveal">
+        <svg class="value-icon" viewBox="0 0 24 24" fill="none"><path d="M12 21C7 17 4 13.5 4 9.5 4 5 8 3 12 7c4-4 8-2 8 2.5 0 4-3 7.5-8 11.5Z" stroke="currentColor" stroke-width="1.8"/></svg>
+        <h3>Sustainability</h3>
+        <p>Products and methods chosen for their impact on the planet, not just the stain.</p>
+      </div>
+      <div class="value reveal">
+        <svg class="value-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.8"/></svg>
+        <h3>Customer Focus</h3>
+        <p>Every space is different, because every client's needs are different.</p>
+      </div>
+      <div class="value reveal">
+        <svg class="value-icon" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="14" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M5 20c0-2.5 2-4 4-4M13 20c0-2 1.8-3.3 4-3.3" stroke="currentColor" stroke-width="1.8"/></svg>
+        <h3>Community</h3>
+        <p>Pretoria is home — supporting it isn't an afterthought.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="about-wrap">
+      <div class="reveal">
+        <span class="eyebrow">About CozyCare</span>
+        <h2 style="font-size:clamp(1.9rem,2.4vw+1rem,2.7rem); margin:16px 0 18px;">Built by two people who actually do the work</h2>
+        <p class="lede">CozyCare Cleaners was founded by Wandile and Samkelo Sibiya, who set out to build a cleaning and hospitality business that people in Pretoria could actually rely on.</p>
+        <p style="color:var(--ink-soft);">The focus hasn't changed since day one: clear communication, dependable scheduling, and a result worth recommending to a neighbour. As the team has grown, that standard hasn't moved.</p>
+      </div>
+ 
+      <div class="founders reveal">
+        <div class="founder">
+          <div class="founder-initial">WS</div>
+          <div>
+            <div class="founder-name">Wandile Sibiya</div>
+            <div class="founder-role">CO-FOUNDER</div>
+          </div>
+        </div>
+        <div class="founder">
+          <div class="founder-initial">SS</div>
+          <div>
+            <div class="founder-name">Samkelo Sibiya</div>
+            <div class="founder-role">CO-FOUNDER</div>
+          </div>
+        </div>
+        <div style="margin-top:10px; padding-top:24px; border-top:1px solid rgba(27,36,32,.1);">
+          <span class="eyebrow" style="margin-bottom:10px; display:block;">Service area</span>
+          <p style="color:var(--ink-soft);">Pretoria, Centurion &amp; surrounding Gauteng suburbs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section" id="reviews" style="background:var(--stone);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Client reviews</span>
+      <h2>What it's like to work with us</h2>
+    </div>
+ 
+    <div class="testi-grid">
+      <div class="testi reveal">
+        <svg viewBox="0 0 32 24" fill="currentColor"><path d="M0 24V14C0 6 5 1 12 0v6C7 7 5 10 5 14h7v10H0ZM18 24V14C18 6 23 1 30 0v6c-5 1-7 4-7 8h7v10H18Z"/></svg>
+        <p class="quote">"Our carpets and couch came back looking new again — the team was professional and didn't cut corners on the detail."</p>
+        <span class="who">Sanele N. Khumalo</span>
+      </div>
+      <div class="testi reveal">
+        <svg viewBox="0 0 32 24" fill="currentColor"><path d="M0 24V14C0 6 5 1 12 0v6C7 7 5 10 5 14h7v10H0ZM18 24V14C18 6 23 1 30 0v6c-5 1-7 4-7 8h7v10H18Z"/></svg>
+        <p class="quote">"Friendly, efficient and thorough. My carpets and couch haven't looked this good in years — worth it for anyone in Pretoria."</p>
+        <span class="who">Robert Nkosi</span>
+      </div>
+      <div class="testi reveal">
+        <svg viewBox="0 0 32 24" fill="currentColor"><path d="M0 24V14C0 6 5 1 12 0v6C7 7 5 10 5 14h7v10H0ZM18 24V14C18 6 23 1 30 0v6c-5 1-7 4-7 8h7v10H18Z"/></svg>
+        <p class="quote">"My whole living room felt brand new afterward. Courteous team, no hassle, done properly the first time."</p>
+        <span class="who">Thandiwe</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ============ CTA / CONTACT (dark) ============ -->
+<section class="section section--dark" id="contact">
+  <div class="wrap">
+    <div class="cta-wrap">
+      <div class="reveal">
+        <span class="eyebrow">Get in touch</span>
+        <h2>Ready for a deeper clean?</h2>
+        <p class="lede">Tell us a little about the space and what needs attention — we'll come back with a quote, or just call and we'll fit you in.</p>
+ 
+        <div class="direct-line">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--honey)" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2C9.5 21 3 14.5 3 6a2 2 0 0 1 2-2Z"/></svg>
+          <a href="tel:+27646301811" style="text-decoration:none;">064 630 1811 — Pretoria &amp; Centurion</a>
+        </div>
+      </div>
+ 
+      <form class="form reveal" id="contactForm">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Email address" required>
+        <input type="tel" name="phone" placeholder="Phone number">
+        <textarea name="message" placeholder="What needs cleaning?" required></textarea>
+        <button type="submit" class="btn btn--honey" style="justify-content:center;">Send Request</button>
+        <p class="form-note">We typically reply within one business day.</p>
+        <div class="form-success" id="formSuccess">Thanks — your request has been noted. We'll be in touch shortly.</div>
+      </form>
+    </div>
+  </div>
+</section>
+ 
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="footer-brand">
+        <svg class="brand-mark" viewBox="0 0 40 40" fill="none">
+          <rect x="9" y="6" width="22" height="28" rx="6" stroke="#F2EFE6" stroke-width="2"/>
+          <circle cx="20" cy="13" r="2.6" stroke="#F2EFE6" stroke-width="2"/>
+          <path d="M14 22 L18 26 L27 17" stroke="#CE9A4D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-text">CozyCare Cleaners</span>
+      </div>
+      <div class="footer-meta">
+        <span>064 630 1811</span>
+        <span>Pretoria &amp; Centurion, Gauteng</span>
+        <span>© 2026 CozyCare Cleaners</span>
+      </div>
+    </div>
+  </div>
+</footer>
+ 
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+ 
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+ 
+  // Contact form (front-end only — see note below)
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    success.classList.add('show');
+    form.reset();
+  });
+ 
+  // NOTE for the developer: this form is front-end only. To actually deliver
+  // messages, wire the submit handler to a backend endpoint, or swap the
+  // <form> for a service like Formspree / Netlify Forms / a small serverless function.
+</script>
+ 
+</body>
+</html>
