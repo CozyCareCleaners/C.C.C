@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CozyCare Cleaners — Carpet, Couch &amp; Office Cleaning in Pretoria</title>
-<meta name="description" content="Professional carpet, couch and office cleaning in Pretoria &amp; Centurion. Eco-friendly products, dependable scheduling. Call 064 630 1811.">
+<title>CozyCare Cleaners — Carpet, Couch &amp; Office Cleaning in Gauteng</title>
+<meta name="description" content="Professional carpet, couch and office cleaning across Gauteng. Eco-friendly products, dependable scheduling. Call 064 630 1811.">
 <meta property="og:title" content="CozyCare Cleaners — Care That Goes Deeper">
-<meta property="og:description" content="Carpet, couch and office cleaning in Pretoria &amp; Centurion, Gauteng.">
+<meta property="og:description" content="Carpet, couch and office cleaning across Gauteng.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -108,7 +108,7 @@
     height:78px;
   }
   .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
-  .brand-mark{width:34px; height:34px; flex-shrink:0;}
+  .brand-mark{width:65px; height:65px; flex-shrink:0; object-fit:contain;}
   .brand-text{font-family:var(--font-display); font-weight:700; font-size:1.15rem; color:var(--ink);}
   .nav-links{display:flex; align-items:center; gap:34px;}
   .nav-links a{
@@ -134,8 +134,9 @@
       border-bottom:1px solid rgba(27,36,32,.08);
       max-height:0; overflow:hidden; transition:max-height .35s ease;
     }
-    .nav-links.open{max-height:320px;}
+    .nav-links.open{max-height:360px;}
     .nav-links a{width:100%; padding:16px 28px; border-bottom:1px solid rgba(27,36,32,.06);}
+    .nav-links li{width:100%;}
     .nav-toggle{display:block;}
   }
  
@@ -221,6 +222,31 @@
  
   @media (max-width:980px){.services-grid{grid-template-columns:repeat(2,1fr);}}
   @media (max-width:620px){.services-grid{grid-template-columns:1fr;}}
+ 
+  /* ---------- Prices ---------- */
+  .price-tabs{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:28px;}
+  .price-tab{
+    padding:10px 20px; border-radius:999px; border:1.5px solid var(--ink);
+    background:transparent; color:var(--ink); font-weight:600; font-size:.9rem;
+    transition:background .25s, color .25s, border-color .25s;
+  }
+  .price-tab:hover{border-color:var(--sage); color:var(--sage);}
+  .price-tab.active{background:var(--ink); color:var(--linen); border-color:var(--ink);}
+  .price-panel{display:none;}
+  .price-panel.active{display:block;}
+  .price-scroll{overflow-x:auto; border-radius:var(--radius-md); border:1px solid rgba(27,36,32,.08); background:#fff;}
+  .price-table{width:100%; border-collapse:collapse; min-width:420px;}
+  .price-table th, .price-table td{padding:16px 22px; text-align:left; border-bottom:1px solid rgba(27,36,32,.07);}
+  .price-table th{
+    font-family:var(--font-mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase;
+    background:var(--sage-light); color:var(--sage);
+  }
+  .price-table td:last-child, .price-table th:last-child{text-align:right; white-space:nowrap;}
+  .price-table td:last-child{font-family:var(--font-mono); font-weight:500; color:var(--forest);}
+  .price-table tr:last-child td{border-bottom:none;}
+  .price-table .dim{display:block; font-size:.8rem; color:var(--ink-soft); font-weight:400; margin-top:2px;}
+  .price-table .quote-price{font-size:.85rem; color:var(--sage);}
+  .price-note{font-size:.88rem; color:var(--ink-soft); margin-top:22px; max-width:760px;}
  
   /* ---------- Values ---------- */
   .values-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:0;}
@@ -325,13 +351,12 @@
 <nav class="nav">
   <div class="wrap">
     <a href="#top" class="brand">
-      <svg class="brand-mark" viewBox="0 0 40 40" fill="none">
-       <img x="11" y="8" width="70" height="70" rx="6" stroke="#1B2420" stroke-width="2" img src= "image/IMG_6494.PNG"/>
-         </svg>
+      <img class="brand-mark" src="image/IMG_6494.PNG" alt="CozyCare Cleaners logo">
       <span class="brand-text">CozyCare Cleaners</span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#services">Services</a></li>
+      <li><a href="#prices">Prices</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -350,12 +375,12 @@
 <header class="hero" id="top">
   <div class="wrap">
     <div>
-      <span class="eyebrow">Carpet · Upholstery · Offices — Pretoria &amp; Centurion</span>
+      <span class="eyebrow">Carpet · Upholstery · Offices — Gauteng</span>
       <h1>Care that goes <em>deeper.</em></h1>
       <p class="lede">CozyCare Cleaners lifts embedded dirt, allergens and stubborn stains out of carpets, couches and workspaces across Gauteng — with eco-friendly products and a team that turns up when it says it will.</p>
       <div class="hero-ctas">
         <a class="btn btn--primary" href="tel:+27646301811">Call 064 630 1811</a>
-        <a class="btn btn--outline" href="#contact">Get a free quote</a>
+        <a class="btn btn--outline" href="#prices">See our prices</a>
       </div>
     </div>
  
@@ -396,7 +421,7 @@
     </span>
     <span class="trust-item">
       <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="3" stroke="currentColor" stroke-width="2"/><path d="M5 21c1.5-4.5 5-6 7-6s5.5 1.5 7 6" stroke="currentColor" stroke-width="2"/></svg>
-      Pretoria &amp; Centurion based
+      Serving all of Gauteng
     </span>
     <span class="trust-item">
       <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="9" width="16" height="11" rx="1.5" stroke="currentColor" stroke-width="2"/><path d="M9 9V6a3 3 0 0 1 6 0v3" stroke="currentColor" stroke-width="2"/></svg>
@@ -404,7 +429,7 @@
     </span>
     <span class="trust-item">
       <svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Family-run, hands-on team
+      Hands-on team
     </span>
   </div>
 </div>
@@ -468,6 +493,97 @@
   </div>
 </section>
  
+<!-- ============ PRICES ============ -->
+<section class="section" id="prices" style="background:var(--stone);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Transparent pricing</span>
+      <h2>Fair prices, no surprises</h2>
+      <p>Fixed prices by size, so you can check your rug tag or room size and know exactly what you'll pay.</p>
+    </div>
+ 
+    <div class="price-tabs reveal" role="tablist">
+      <button class="price-tab active" data-tab="carpets" role="tab">Fitted Carpets</button>
+      <button class="price-tab" data-tab="rugs" role="tab">Rugs &amp; Runners</button>
+      <button class="price-tab" data-tab="couches" role="tab">Couches</button>
+      <button class="price-tab" data-tab="mattresses" role="tab">Mattresses</button>
+      <button class="price-tab" data-tab="offices" role="tab">Offices &amp; Extras</button>
+    </div>
+ 
+    <div class="price-panel active reveal" id="tab-carpets">
+      <div class="price-scroll"><table class="price-table">
+        <thead><tr><th>Wall-to-wall carpet</th><th>Price</th></tr></thead>
+        <tbody>
+          <tr><td>Small room / hallway / closet<span class="dim">Up to 8 m² · e.g. a 2.5 × 3 m room</span></td><td>R350</td></tr>
+          <tr><td>Standard bedroom / medium room<span class="dim">9 – 14 m² · e.g. a 3.5 × 4 m room</span></td><td>R500</td></tr>
+          <tr><td>Master bedroom / large room<span class="dim">15 – 20 m² · e.g. a 4 × 5 m room</span></td><td>R700</td></tr>
+          <tr><td>Lounge / open-plan living area<span class="dim">21 – 40 m² · e.g. a 5 × 8 m room</span></td><td>R950</td></tr>
+          <tr><td>Stairs<span class="dim">Flat rate per step</span></td><td>R30 per step</td></tr>
+          <tr><td>Larger than 40 m²<span class="dim">Quoted per job</span></td><td><span class="quote-price">Get a quote</span></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+ 
+    <div class="price-panel reveal" id="tab-rugs">
+      <div class="price-scroll"><table class="price-table">
+        <thead><tr><th>Loose rug / runner</th><th>Price</th></tr></thead>
+        <tbody>
+          <tr><td>Small mat / doormat<span class="dim">60 × 110 cm · 0.66 m²</span></td><td>R150</td></tr>
+          <tr><td>Small bedside rug<span class="dim">80 × 150 cm · 1.20 m²</span></td><td>R200</td></tr>
+          <tr><td>Small–medium rug<span class="dim">120 × 170 cm · 2.04 m²</span></td><td>R300</td></tr>
+          <tr><td>Medium area rug<span class="dim">140 × 200 cm · 2.80 m²</span></td><td>R450</td></tr>
+          <tr><td>Standard living room rug<span class="dim">160 × 230 cm · 3.68 m²</span></td><td>R550</td></tr>
+          <tr><td>Large living room rug<span class="dim">200 × 300 cm · 6.00 m²</span></td><td>R750</td></tr>
+          <tr><td>Extra large rug<span class="dim">240 × 330 cm · 7.92 m²</span></td><td>R950</td></tr>
+          <tr><td>Oversized rug<span class="dim">300 × 400 cm · 12.00 m²</span></td><td>R1,350</td></tr>
+          <tr><td>Standard hallway runner<span class="dim">80 × 300 cm · 2.40 m²</span></td><td><span class="quote-price">Get a quote</span></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+ 
+    <div class="price-panel reveal" id="tab-couches">
+      <div class="price-scroll"><table class="price-table">
+        <thead><tr><th>Couch &amp; upholstery</th><th>Price</th></tr></thead>
+        <tbody>
+          <tr><td>Dining chair (each)</td><td>R70</td></tr>
+          <tr><td>Armchair / ottoman</td><td>R160</td></tr>
+          <tr><td>2-seater</td><td>R280</td></tr>
+          <tr><td>3-seater</td><td>R380</td></tr>
+          <tr><td>L-shape or 5-seater set</td><td>R520</td></tr>
+          <tr><td>6-seater set</td><td>R600</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+ 
+    <div class="price-panel reveal" id="tab-mattresses">
+      <div class="price-scroll"><table class="price-table">
+        <thead><tr><th>Mattress size</th><th>Price</th></tr></thead>
+        <tbody>
+          <tr><td>Single</td><td>R220</td></tr>
+          <tr><td>Three-quarter</td><td>R240</td></tr>
+          <tr><td>Double</td><td>R330</td></tr>
+          <tr><td>Queen</td><td>R380</td></tr>
+          <tr><td>King</td><td>R490</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+ 
+    <div class="price-panel reveal" id="tab-offices">
+      <div class="price-scroll"><table class="price-table">
+        <thead><tr><th>Offices &amp; extras</th><th>Price</th></tr></thead>
+        <tbody>
+          <tr><td>Office carpets (same size tiers as Fitted Carpets)</td><td>See Fitted Carpets</td></tr>
+          <tr><td>Office cleaning (scheduled or once-off)</td><td>From R380 per hour</td></tr>
+          <tr><td>Stain or pet-mark treatment</td><td>R60 per spot</td></tr>
+          <tr><td>Stairs</td><td>R30 per step</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+ 
+    <p class="price-note">Prices are guide rates for Gauteng. Heavy soiling, delicate fabrics (wool, silk, leather) or very large jobs may be quoted separately, and we always confirm the price before we start. <a href="#contact" style="color:var(--sage); font-weight:600;">Get your exact quote →</a></p>
+  </div>
+</section>
+ 
 <!-- ============ VALUES (dark band) ============ -->
 <section class="section section--dark">
   <div class="wrap">
@@ -500,7 +616,7 @@
       <div class="value reveal">
         <svg class="value-icon" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="14" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M5 20c0-2.5 2-4 4-4M13 20c0-2 1.8-3.3 4-3.3" stroke="currentColor" stroke-width="1.8"/></svg>
         <h3>Community</h3>
-        <p>Pretoria is home — supporting it isn't an afterthought.</p>
+        <p>Gauteng is home — supporting it isn't an afterthought.</p>
       </div>
     </div>
   </div>
@@ -512,8 +628,8 @@
     <div class="about-wrap">
       <div class="reveal">
         <span class="eyebrow">About CozyCare</span>
-        <h2 style="font-size:clamp(1.9rem,2.4vw+1rem,2.7rem); margin:16px 0 18px;">Built by two people who actually do the work</h2>
-        <p class="lede">CozyCare Cleaners was founded by Wandile and Samkelo Sibiya, who set out to build a cleaning and hospitality business that people in Pretoria could actually rely on.</p>
+        <h2 style="font-size:clamp(1.9rem,2.4vw+1rem,2.7rem); margin:16px 0 18px;">Built by a team who actually do the work</h2>
+        <p class="lede">CozyCare Cleaners was founded by Wandile and Samkelo Sibiya, and is led today by directors Wandile Sibiya, Samkelo Sibiya and Kgothatso Mootane, who set out to build a cleaning and hospitality business that people across Gauteng could actually rely on.</p>
         <p style="color:var(--ink-soft);">The focus hasn't changed since day one: clear communication, dependable scheduling, and a result worth recommending to a neighbour. As the team has grown, that standard hasn't moved.</p>
       </div>
  
@@ -532,9 +648,16 @@
             <div class="founder-role">CO-FOUNDER</div>
           </div>
         </div>
+        <div class="founder">
+          <div class="founder-initial">KM</div>
+          <div>
+            <div class="founder-name">Kgothatso Mootane</div>
+            <div class="founder-role">DIRECTOR</div>
+          </div>
+        </div>
         <div style="margin-top:10px; padding-top:24px; border-top:1px solid rgba(27,36,32,.1);">
           <span class="eyebrow" style="margin-bottom:10px; display:block;">Service area</span>
-          <p style="color:var(--ink-soft);">Pretoria, Centurion &amp; surrounding Gauteng suburbs.</p>
+          <p style="color:var(--ink-soft);">Homes and businesses across Gauteng.</p>
         </div>
       </div>
     </div>
@@ -557,7 +680,7 @@
       </div>
       <div class="testi reveal">
         <svg viewBox="0 0 32 24" fill="currentColor"><path d="M0 24V14C0 6 5 1 12 0v6C7 7 5 10 5 14h7v10H0ZM18 24V14C18 6 23 1 30 0v6c-5 1-7 4-7 8h7v10H18Z"/></svg>
-        <p class="quote">"Friendly, efficient and thorough. My carpets and couch haven't looked this good in years — worth it for anyone in Pretoria."</p>
+        <p class="quote">"Friendly, efficient and thorough. My carpets and couch haven't looked this good in years — worth it for anyone in Gauteng."</p>
         <span class="who">Robert Nkosi</span>
       </div>
       <div class="testi reveal">
@@ -580,7 +703,7 @@
  
         <div class="direct-line">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--honey)" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2C9.5 21 3 14.5 3 6a2 2 0 0 1 2-2Z"/></svg>
-          <a href="tel:+27646301811" style="text-decoration:none;">064 630 1811 — Pretoria &amp; Centurion</a>
+          <a href="tel:+27646301811" style="text-decoration:none;">064 630 1811 — Gauteng</a>
         </div>
         <div style="margin-top:22px;">
           <a class="btn btn--whatsapp" href="https://wa.me/27646301811?text=Hi%20CozyCare%2C%20I%27d%20like%20to%20get%20a%20quote%20please" target="_blank" rel="noopener">
@@ -618,7 +741,7 @@
       </div>
       <div class="footer-meta">
         <span>064 630 1811</span>
-        <span>Pretoria &amp; Centurion, Gauteng</span>
+        <span>Serving Gauteng, South Africa</span>
         <span>© 2026 CozyCare Cleaners</span>
       </div>
     </div>
@@ -639,13 +762,18 @@
   }, { threshold: 0.15 });
   revealEls.forEach(el => io.observe(el));
  
-  // ── Contact form → Formspree ──────────────────────────────────────────────
-  // SETUP (one-time, free):
-  //   1. Go to https://formspree.io and sign up with CozyCare's email address.
-  //   2. Click "New Form", give it a name (e.g. "CozyCare Quotes").
-  //   3. Copy the form ID from the URL — it looks like: xpwzqdbe
-  //   4. Paste it below to replace YOUR_FORM_ID.
-  //   5. Done — submissions land in that email inbox.
+  // Price tabs
+  document.querySelectorAll('.price-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.price-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.price-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      const panel = document.getElementById('tab-' + btn.dataset.tab);
+      panel.classList.add('active', 'in');
+    });
+  });
+ 
+  // Contact form → Formspree
   const FORMSPREE_ID = 'mqpzplle';
  
   const form      = document.getElementById('contactForm');
